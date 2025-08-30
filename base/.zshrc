@@ -1,8 +1,29 @@
 # ===================================================
 #        FICHIER DE CONFIGURATION ZSH
 # ===================================================
-#Variable d'env personnelle. Les autres sont dans DOTFILES/shell/common/env_vars.sh
-DOTFILES="/mnt/repo/dev/warehouse/configs/dotfiles"
+HOST_CONFIG_DIR="$HOME/.config/host_specific"
+
+# Détermine le fichier d'environnement à charger en fonction du nom d'hôte.
+case "$(hostname)" in
+    'sumac')
+        HOST_ENV_FILE="$HOST_CONFIG_DIR/sumac.env.sh"
+        ;;
+    'zaatar')
+        HOST_ENV_FILE="$HOST_CONFIG_DIR/zaatar.env.sh"
+        ;;
+    *)
+        # Sécurité : Si l'hôte est inconnu, on ne charge rien et on affiche un avertissement.
+        echo "ATTENTION : Hôte '$(hostname)' non reconnu. Fichier d'environnement non chargé." >&2
+        ;;
+esac
+
+# Source le fichier d'environnement s'il a été trouvé et est lisible.
+if [ -f "$HOST_ENV_FILE" ]; then
+    source "$HOST_ENV_FILE"
+else
+    echo "ERREUR : Fichier d'environnement '$HOST_ENV_FILE' introuvable." >&2
+fi
+
 # ======= OPTIMISATIONS DE PERFORMANCES =======
 # Désactiver les mises à jour automatiques d'Oh My Zsh
 DISABLE_AUTO_UPDATE="true"
@@ -53,24 +74,6 @@ unset rc
 # Pour personnaliser le prompt, lancer `p10k configure` ou éditer ~/.p10k.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# ===================================================
-#      CHARGEMENT DES CONFIGURATIONS SPÉCIFIQUES
-# ===================================================
-
-# Détecter le nom de l'hôte et le convertir en minuscules pour être plus robuste
-local host_name
-host_name=$(hostname)
-HOST_CONFIG_FILE="$DOTFILES/shell/common/host_specific/${host_name:l}.env.sh"
-
-if [[ -f "$HOST_CONFIG_FILE" ]]; then
-  source "$HOST_CONFIG_FILE"
-else
-  echo "WARN: Pas de fichier de configuration trouvé pour l'hôte '${host_name}'."
-  echo "      Chemin cherché : $HOST_CONFIG_FILE"
-fi
-
-unset host_name
-
 # ======= CHARGEMENT DES FICHIERS MODULAIRES =======
 
 # Définir le chemin canonique en utilisant une fonction interne de Zsh (:A)
@@ -87,13 +90,10 @@ unset main_zshrc_path
 
 # Créer les répertoires nécessaires
 mkdir -p $DOTFILES/shell/zsh \
-         $DOTFILES/shell/common 
+         $DOTFILES/shell/common \
+         $DOTFILES/shell/env 
          
-# Chargement des variables et des paths
-if [[ -f $DOTFILES/shell/common/env_vars.sh ]]; then
-  source $DOTFILES/shell/common/env_vars.sh
-fi
-
+# Chargement des paths
 if [[ -f $DOTFILES/shell/env/paths.env ]]; then
   source $DOTFILES/shell/env/paths.env
 fi
