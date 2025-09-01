@@ -104,8 +104,8 @@ fi
 # --- Commandes exécutées uniquement dans un terminal interactif ---
 if [ -t 0 ]; then
   # 1. Changer le répertoire de démarrage
-  if [[ -d "$HOME/dev/warehouse" ]]; then
-    cd "$HOME/dev/warehouse"
+  if [[ -d "$DEV_ENV/warehouse" ]]; then
+    cd "$DEV_ENV/warehouse"
   fi
 
   # 2. Corriger le caractère d'effacement du terminal
