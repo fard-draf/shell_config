@@ -20,6 +20,7 @@ alias repo='cd $SUMAC_PATH'
 alias week='cd $SUMAC_PATH/dev/warehouse/playground/weekly'
 alias korri='cd $SUMAC_PATH/dev/warehouse/projects/professional/korrigan'
 alias data='cd $SUMAC_PATH/storage'
+alias canbus='cd $SUMAC_PATH/storage/30_PROFESSIONAL/P01_CANBUS'
 alias wh='cd $DEV_PATH/warehouse'
 
 # ======= ALIAS SHELL =======
