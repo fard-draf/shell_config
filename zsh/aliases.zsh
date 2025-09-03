@@ -31,7 +31,7 @@ alias zshalias='hx $DOTFILES/shell/zsh/aliases.zsh'
  
 # ======= ALIAS CONFIGURATION =======
 alias conf='cd $DEV_PATH/warehouse/configs'
-alias dot='cd $DOTFILES'
+alias dotf='cd $DOTFILES'
 alias hxconf='hx $DOTFILES/helix/config.toml'
 alias zelconf='hx $DOTFILES/zellij/config.kdl'
 
