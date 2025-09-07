@@ -5,6 +5,7 @@ export DEV_PATH="/mnt/repo/dev"
 export DOTFILES="$DEV_PATH/warehouse/configs/dotfiles"
 export VAULT_PATH="/mnt/repo/cloud/"
 export SUMAC_PATH="/mnt/repo" 
+export KORRI="$DEV_PATH/warehouse/projects/professional/korrigan"
 
 
 #=======================================================

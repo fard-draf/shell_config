@@ -5,6 +5,7 @@ export DEV_PATH="$HOME/dev"
 export DOTFILES="$DEV_PATH/warehouse/configs/dotfiles"
 export VAULT_PATH="$HOME/Documents/10_SYNC/10.2_VAULTS/10.2.1_SUMAC_CLOUD"
 export SUMAC_PATH="/mnt/sumac" 
+export KORRI="$DEV_PATH/warehouse/projects/professional/korrigan"
 
 #=======================================================
 #         VARIABLES DES OUTILS DE DÉVELOPPEMENT
