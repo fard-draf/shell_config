@@ -12,8 +12,8 @@ case "$(hostname)" in
         HOST_ENV_FILE="$HOST_CONFIG_DIR/zaatar.env.sh"
         ;;
     *)
-        # Sécurité : Si l'hôte est inconnu, on ne charge rien et on affiche un avertissement.
-        echo "ATTENTION : Hôte '$(hostname)' non reconnu. Fichier d'environnement non chargé." >&2
+        HOST_ENV_FILE="$HOST_CONFIG_DIR/pve-dev.env.sh"
+        ;;
         ;;
 esac
 
@@ -51,8 +51,6 @@ if [ "$(date +'%j')" != "$(stat -c '%Y' ~/.zcompdump 2>/dev/null | date +'%j')" 
 else
   compinit -C
 fi
-# ======= INITIALISATION ZOXIDE ======
-eval "$(zoxide init zsh)"
 
 # ======= CHARGEMENT OH MY ZSH =======
 source $ZSH/oh-my-zsh.sh
