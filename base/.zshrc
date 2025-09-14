@@ -5,8 +5,8 @@ HOST_CONFIG_DIR="$HOME/.config/host_specific"
 
 # Détermine le fichier d'environnement à charger en fonction du nom d'hôte.
 case "$(hostname)" in
-    'sumac')
-        HOST_ENV_FILE="$HOST_CONFIG_DIR/sumac.env.sh"
+    'pve-dev')
+        HOST_ENV_FILE="$HOST_CONFIG_DIR/pve-dev.env.sh"
         ;;
     'zaatar')
         HOST_ENV_FILE="$HOST_CONFIG_DIR/zaatar.env.sh"
@@ -51,6 +51,8 @@ if [ "$(date +'%j')" != "$(stat -c '%Y' ~/.zcompdump 2>/dev/null | date +'%j')" 
 else
   compinit -C
 fi
+# ======= INITIALISATION ZOXIDE ======
+eval "$(zoxide init zsh)"
 
 # ======= CHARGEMENT OH MY ZSH =======
 source $ZSH/oh-my-zsh.sh
@@ -124,5 +126,8 @@ SYSTEMD_AGENT_SOCK="/run/user/$(id -u)/ssh-agent.socket"
 if [[ -S "$SYSTEMD_AGENT_SOCK" ]]; then
   export SSH_AUTH_SOCK="$SYSTEMD_AGENT_SOCK"
 fi
-
+#=======================================================
+#         PROMPT
+#=======================================================
+PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f %# '
 # --- Fin du fichier .zshrc ---
