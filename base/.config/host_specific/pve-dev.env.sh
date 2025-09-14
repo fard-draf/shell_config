@@ -33,7 +33,3 @@ export CONTAINERS_STORAGE_OPTS="--root $DEV_PATH/tools/podman/storage"
 #=======================================================PREFERENCES
 export EDITOR=/bin/hx
 export VISUAL=/bin/hx
-#=======================================================
-#         PROMPT
-#=======================================================
-PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f %# '
