@@ -1,12 +1,9 @@
 #=======================================================
 #         VARIABLES D'ENVIRONNEMENT PERSONNELLES
 #=======================================================
-export DEV_PATH="/mnt/repo/dev"
+export DEV_PATH="$HOME/dev"
 export DOTFILES="$DEV_PATH/warehouse/configs/dotfiles"
-export VAULT_PATH="/mnt/repo/cloud/"
-export SUMAC_PATH="/mnt/repo" 
 export KORRI="$DEV_PATH/warehouse/projects/professional/korrigan"
-
 
 #=======================================================
 #         VARIABLES DES OUTILS DE DÉVELOPPEMENT
@@ -19,6 +16,8 @@ export TYPESCRIPT_HOME="$DEV_PATH/tools/typescript"
 #=======================================================CARGO+RUST
 export CARGO_HOME="$DEV_PATH/tools/rust/cargo"
 export RUSTUP_HOME="$DEV_PATH/tools/rust/rustup"
+export RUST_ANALYZER_HOME="$DEV_PATH/tools/rust/rust-analyzer"
+#=======================================================NVM
 #=======================================================NODEJS
 export NODEJS_HOME="$DEV_PATH/tools/nodejs"
 #=======================================================PYTHON

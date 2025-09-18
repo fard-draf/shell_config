@@ -18,8 +18,6 @@ export CARGO_HOME="$DEV_PATH/tools/rust/cargo"
 export RUSTUP_HOME="$DEV_PATH/tools/rust/rustup"
 #=======================================================NODEJS
 export NODEJS_HOME="$DEV_PATH/tools/nodejs"
-export npm_config_prefix="$NODEJS_HOME/npm-global"
-export npm_config_cache="$NODEJS_HOME/npm-cache"
 #=======================================================PYTHON
 export PYENV_ROOT="$DEV_PATH/tools/pyenv"
 #=======================================================YARN

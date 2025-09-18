@@ -11,9 +11,11 @@ case "$(hostname)" in
     'zaatar')
         HOST_ENV_FILE="$HOST_CONFIG_DIR/zaatar.env.sh"
         ;;
+    'kamun')
+        HOST_ENV_FILE="$HOST_CONFIG_DIR/kamun.env.sh"
+        ;;
     *)
         HOST_ENV_FILE="$HOST_CONFIG_DIR/pve-dev.env.sh"
-        ;;
         ;;
 esac
 
@@ -124,8 +126,3 @@ SYSTEMD_AGENT_SOCK="/run/user/$(id -u)/ssh-agent.socket"
 if [[ -S "$SYSTEMD_AGENT_SOCK" ]]; then
   export SSH_AUTH_SOCK="$SYSTEMD_AGENT_SOCK"
 fi
-#=======================================================
-#         PROMPT
-#=======================================================
-PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f %# '
-# --- Fin du fichier .zshrc ---
