@@ -33,3 +33,5 @@ export CONTAINERS_STORAGE_OPTS="--root $DEV_PATH/tools/podman/storage"
 #=======================================================PREFERENCES
 export EDITOR=/bin/hx
 export VISUAL=/bin/hx
+#=======================================================SSH_CONF
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
